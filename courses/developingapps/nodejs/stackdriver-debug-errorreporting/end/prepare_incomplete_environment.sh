@@ -19,7 +19,8 @@ echo "Creating App Engine app"
 gcloud app create --region "us-central"
 
 echo "Making bucket: gs://$GCLOUD_BUCKET"
-gsutil mb gs://$GCLOUD_BUCKET
+# Note: The gcloud storage buckets create command is the direct equivalent of gsutil mb. The various aliases for gsutil mb are not supported.
+gcloud storage buckets create gs://$GCLOUD_BUCKET
 
 echo "Installing dependencies"
 npm install
